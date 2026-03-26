@@ -1,0 +1,279 @@
+import { motion } from 'motion/react';
+import { useInView } from 'motion/react';
+import { useRef } from 'react';
+import Slider from 'react-slick';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+
+const testemunhos = [
+  {
+    id: 1,
+    name: 'Ana Silva',
+    role: 'Coffee Enthusiast',
+    rating: 5,
+    text: 'The best coffee experience in town! The atmosphere is cozy, the baristas are knowledgeable, and every cup is perfection.',
+    avatar: 'AS',
+  },
+  {
+    id: 2,
+    name: 'Carlos Mendes',
+    role: 'Regular Customer',
+    rating: 5,
+    text: 'I come here every morning. The cappuccino is consistently excellent, and the staff always greets me with a warm smile.',
+    avatar: 'CM',
+  },
+  {
+    id: 3,
+    name: 'Julia Santos',
+    role: 'Food Blogger',
+    rating: 5,
+    text: 'Um ótimo estabelecimento! todos os detalhes nos cafés e doces são dignos de parabens. A arte nos cafés com certeza valem a espera.',
+    avatar: 'JS',
+  },
+  {
+    id: 4,
+    name: 'Roberto Lima',
+    role: 'Empresario',
+    rating: 5,
+    text: 'Perfect spot for meetings. Great coffee, comfortable seating, and a productive atmosphere. Highly recommend!',
+    avatar: 'RL',
+  },
+];
+
+function CustomArrow({ direction, onClick }: { direction: 'prev' | 'next'; onClick?: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`absolute top-1/2 -translate-y-1/2 ${
+        direction === 'prev' ? 'left-0 -translate-x-12' : 'right-0 translate-x-12'
+      } z-10 bg-[#C9A84C] hover:bg-[#d4b55c] text-[#2C1A0E] rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hidden lg:block`}
+    >
+      {direction === 'prev' ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
+    </button>
+  );
+}
+
+export function TestimonialsSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    prevArrow: <CustomArrow direction="prev" />,
+    nextArrow: <CustomArrow direction="next" />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    <section id="testemunhos" ref={ref} className="py-20 md:py-32 bg-white overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="font-['Playfair_Display'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
+            Oque nossos clientes dizem?
+          </h2>
+          <p className="font-['DM_Sans'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
+            Não leve em conta apenas oque falamos, leia oque alguns de nossos maiores clientes ja falaram:
+          </p>
+        </motion.div>
+
+        {/* Carousel */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative px-4 lg:px-16"
+        >
+          <Slider {...settings}>
+            {testemunhos.map((testemunho) => (
+              <div key={testemunho.id} className="px-4">
+                <div className="bg-[#F5ECD7] rounded-2xl p-8 shadow-lg h-full">
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testemunho.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-[#C9A84C] text-[#C9A84C]" />
+                    ))}
+                  </div>
+
+                  {/* Text */}
+                  <p className="font-['DM_Sans'] text-[#2C1A0E]/80 text-base leading-relaxed mb-6">
+                    "{testemunho.text}"
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#8A9E7B] flex items-center justify-center">
+                      <span className="font-['DM_Sans'] text-white text-lg">
+                        {testemunho.avatar}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="font-['Playfair_Display'] text-[#2C1A0E] text-lg">
+                        {testemunho.name}
+                      </div>
+                      <div className="font-['DM_Sans'] text-[#2C1A0E]/60 text-sm">
+                        {testemunho.role}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </motion.div>
+      </div>
+
+      <style>{`
+        /* Slick Carousel Base Styles */
+        .slick-slider {
+          position: relative;
+          display: block;
+          box-sizing: border-box;
+          user-select: none;
+          touch-action: pan-y;
+        }
+        .slick-list {
+          position: relative;
+          display: block;
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+        }
+        .slick-list:focus {
+          outline: none;
+        }
+        .slick-list.dragging {
+          cursor: pointer;
+        }
+        .slick-slider .slick-track,
+        .slick-slider .slick-list {
+          transform: translate3d(0, 0, 0);
+        }
+        .slick-track {
+          position: relative;
+          top: 0;
+          left: 0;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .slick-track:before,
+        .slick-track:after {
+          display: table;
+          content: '';
+        }
+        .slick-track:after {
+          clear: both;
+        }
+        .slick-loading .slick-track {
+          visibility: hidden;
+        }
+        .slick-slide {
+          display: none;
+          float: left;
+          height: 100%;
+          min-height: 1px;
+        }
+        .slick-slide img {
+          display: block;
+        }
+        .slick-slide.slick-loading img {
+          display: none;
+        }
+        .slick-slide.dragging img {
+          pointer-events: none;
+        }
+        .slick-initialized .slick-slide {
+          display: block;
+        }
+        .slick-loading .slick-slide {
+          visibility: hidden;
+        }
+        .slick-vertical .slick-slide {
+          display: block;
+          height: auto;
+          border: 1px solid transparent;
+        }
+        .slick-arrow.slick-hidden {
+          display: none;
+        }
+        
+        /* Dots */
+        .slick-dots {
+          position: relative;
+          bottom: -50px;
+          display: block;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          text-align: center;
+        }
+        .slick-dots li {
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin: 0 5px;
+          padding: 0;
+          cursor: pointer;
+        }
+        .slick-dots li button {
+          font-size: 0;
+          line-height: 0;
+          display: block;
+          width: 20px;
+          height: 20px;
+          padding: 5px;
+          cursor: pointer;
+          color: transparent;
+          border: 0;
+          outline: none;
+          background: transparent;
+        }
+        .slick-dots li button:before {
+          font-size: 10px;
+          line-height: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          content: '•';
+          text-align: center;
+          opacity: 0.4;
+          color: #C9A84C;
+        }
+        .slick-dots li.slick-active button:before {
+          opacity: 1;
+          color: #C9A84C;
+        }
+      `}</style>
+    </section>
+  );
+}
