@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './tailwind.css'  // ou './styles.css' / './App.css' — onde tá seu Tailwind
+import App from './app/App.tsx'  // ← CAMINHO CORRETO agora!
+import './styles/tailwind.css'  // Tailwind também
 
 ReactDOM.createRoot(document.getElementById('root')! as HTMLElement).render(
   <React.StrictMode>
