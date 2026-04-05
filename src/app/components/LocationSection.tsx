@@ -22,10 +22,10 @@ export function LocationSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-['Playfair_Display'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
+          <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
             Nos visite
           </h2>
-          <p className="font-['DM_Sans'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
+          <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
             Transforme sua pausa em um encontro com a arte do café.
           </p>
         </motion.div>
@@ -42,8 +42,8 @@ export function LocationSection() {
             <div className="w-full h-full bg-gradient-to-br from-[#8A9E7B] to-[#C9A84C] flex items-center justify-center">
               <div className="text-center text-white">
                 <MapPin className="w-16 h-16 mx-auto mb-4 opacity-80" />
-                <p className="font-['DM_Sans'] text-xl">Mapa Interativo</p>
-                <p className="font-['DM_Sans'] text-sm opacity-80 mt-2">
+                <p className="font-['Inter'] text-xl">Mapa Interativo</p>
+                <p className="font-['Inter'] text-sm opacity-80 mt-2">
                   (Google Maps Aqui)
                 </p>
               </div>
@@ -72,10 +72,10 @@ export function LocationSection() {
                   <MapPin className="w-6 h-6 text-[#2C1A0E]" />
                 </div>
                 <div>
-                  <h3 className="font-['Playfair_Display'] text-[#2C1A0E] text-2xl mb-2">
+                  <h3 className="font-['Inter'] text-[#2C1A0E] text-2xl mb-2">
                     Endereço
                   </h3>
-                  <p className="font-['DM_Sans'] text-[#2C1A0E]/80 leading-relaxed">
+                  <p className="font-['Inter'] text-[#2C1A0E]/80 leading-relaxed">
                     Rua das Rosas, 123
                     <br />
                     Centro
@@ -93,7 +93,7 @@ export function LocationSection() {
                   <Clock className="w-6 h-6 text-[#2C1A0E]" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-['Playfair_Display'] text-[#2C1A0E] text-2xl mb-4">
+                  <h3 className="font-['Inter'] text-[#2C1A0E] text-2xl mb-4">
                     Horários:
                   </h3>
                   <div className="space-y-3">
@@ -102,10 +102,10 @@ export function LocationSection() {
                         key={schedule.day}
                         className="flex justify-between items-center py-2 border-b border-[#2C1A0E]/10"
                       >
-                        <span className="font-['DM_Sans'] text-[#2C1A0E]/80">
+                        <span className="font-['Inter'] text-[#2C1A0E]/80">
                           {schedule.day}
                         </span>
-                        <span className="font-['DM_Sans'] text-[#2C1A0E]">
+                        <span className="font-['Inter'] text-[#2C1A0E]">
                           {schedule.time}
                         </span>
                       </div>
@@ -122,10 +122,10 @@ export function LocationSection() {
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-['DM_Sans'] text-[#2C1A0E]/60 text-sm">
+                  <p className="font-['Inter'] text-[#2C1A0E]/60 text-sm">
                     Numero para contato:
                   </p>
-                  <p className="font-['DM_Sans'] text-[#2C1A0E]">
+                  <p className="font-['Inter'] text-[#2C1A0E]">
                     (69) 99999-9999
                   </p>
                 </div>
@@ -135,18 +135,18 @@ export function LocationSection() {
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-['DM_Sans'] text-[#2C1A0E]/60 text-sm">
+                  <p className="font-['Inter'] text-[#2C1A0E]/60 text-sm">
                     Email
                   </p>
-                  <p className="font-['DM_Sans'] text-[#2C1A0E]">
-                    email@cafecafe.com
+                  <p className="font-['Inter'] text-[#2C1A0E]">
+                    email@auracup.com
                   </p>
                 </div>
               </div>
             </div>
 
             {/* CTA Button */}
-            <button className="w-full bg-[#2C1A0E] text-[#F5ECD7] px-8 py-4 rounded-full font-['DM_Sans'] text-lg hover:bg-[#3d2918] transition-all duration-300 hover:scale-105 shadow-xl mt-6">
+            <button className="w-full bg-[#2C1A0E] text-[#F5ECD7] px-8 py-4 rounded-full font-['Inter'] text-lg hover:bg-[#3d2918] transition-all duration-300 hover:scale-105 shadow-xl mt-6">
               Saiba Mais
             </button>
           </motion.div>

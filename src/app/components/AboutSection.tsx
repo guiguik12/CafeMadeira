@@ -34,18 +34,18 @@ export function AboutSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="font-['Playfair_Display'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-6">
+            <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-6">
               Nossa História
             </h2>
 
-            <p className="font-['DM_Sans'] text-[#2C1A0E]/80 text-lg mb-6 leading-relaxed">
+            <p className="font-['Inter'] text-[#2C1A0E]/80 text-lg mb-6 leading-relaxed">
               A proposta da Café & Café sempre foi oferecer mais do que sabores
               marcantes. Eu queria construir uma experiência — um ambiente em
               que o aroma do café fresco, o atendimento próximo e a atmosfera
               tranquila fizessem cada cliente se sentir em casa.
             </p>
 
-            <p className="font-['DM_Sans'] text-[#2C1A0E]/80 text-lg mb-8 leading-relaxed">
+            <p className="font-['Inter'] text-[#2C1A0E]/80 text-lg mb-8 leading-relaxed">
               O nome Café & Café carrega justamente essa essência. Ele
               representa os diferentes momentos que o café acompanha: o primeiro
               gole da manhã, a conversa da tarde, a pausa entre compromissos e
@@ -54,37 +54,37 @@ export function AboutSection() {
 
             {/* Pull Quote */}
             <div className="relative pl-6 border-l-4 border-[#C9A84C] my-8">
-              <p className="font-['Playfair_Display'] text-[#2C1A0E] text-2xl md:text-3xl italic">
+              <p className="font-['Inter'] text-[#2C1A0E] text-2xl md:text-3xl italic">
                 "O café não é apenas uma bebida, mas uma experiência criada com
                 amor e repleta de diferentes sensações."
               </p>
-              <p className="font-['DM_Sans'] text-[#8A9E7B] mt-2">
+              <p className="font-['Inter'] text-[#8A9E7B] mt-2">
                 — Luiz Ribeiro, Fundador
               </p>
             </div>
 
             <div className="grid grid-cols-3 gap-6 mt-8">
               <div className="text-center">
-                <div className="font-['Playfair_Display'] text-[#C9A84C] text-3xl md:text-4xl mb-2">
+                <div className="font-['Inter'] text-[#C9A84C] text-3xl md:text-4xl mb-2">
                   10+
                 </div>
-                <div className="font-['DM_Sans'] text-[#2C1A0E]/70 text-sm">
+                <div className="font-['Inter'] text-[#2C1A0E]/70 text-sm">
                   Anos de Excelência
                 </div>
               </div>
               <div className="text-center">
-                <div className="font-['Playfair_Display'] text-[#C9A84C] text-3xl md:text-4xl mb-2">
+                <div className="font-['Inter'] text-[#C9A84C] text-3xl md:text-4xl mb-2">
                   50k+
                 </div>
-                <div className="font-['DM_Sans'] text-[#2C1A0E]/70 text-sm">
+                <div className="font-['Inter'] text-[#2C1A0E]/70 text-sm">
                   Clientes Satisfeitos
                 </div>
               </div>
               <div className="text-center">
-                <div className="font-['Playfair_Display'] text-[#C9A84C] text-3xl md:text-4xl mb-2">
+                <div className="font-['Inter'] text-[#C9A84C] text-3xl md:text-4xl mb-2">
                   100%
                 </div>
-                <div className="font-['DM_Sans'] text-[#2C1A0E]/70 text-sm">
+                <div className="font-['Inter'] text-[#2C1A0E]/70 text-sm">
                   Grãos Naturais
                 </div>
               </div>

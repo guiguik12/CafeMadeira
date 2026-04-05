@@ -59,10 +59,10 @@ export function GallerySection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-['Playfair_Display'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
+          <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
             Nosso Ambiente
           </h2>
-          <p className="font-['DM_Sans'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
+          <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
             Mergulhe em um mundo onde conforto e tradição se encontram em cada
             xícara.
           </p>

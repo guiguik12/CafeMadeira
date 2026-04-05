@@ -66,10 +66,10 @@ export function MenuSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-['Playfair_Display'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
+          <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
             Nosso Cardápio
           </h2>
-          <p className="font-['DM_Sans'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
+          <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
             Conheça nossa seleção de bebidas artesanais e acompanhamentos
             cuidadosamente escolhidos.
           </p>
@@ -95,17 +95,17 @@ export function MenuSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2C1A0E]/50 to-transparent" />
                   {/* Price Tag */}
-                  <div className="absolute top-4 right-4 bg-[#C9A84C] text-[#2C1A0E] px-4 py-2 rounded-full font-['DM_Sans'] shadow-lg">
+                  <div className="absolute top-4 right-4 bg-[#C9A84C] text-[#2C1A0E] px-4 py-2 rounded-full font-['Inter'] shadow-lg">
                     {item.price}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="font-['Playfair_Display'] text-[#2C1A0E] text-2xl mb-2">
+                  <h3 className="font-['Inter'] text-[#2C1A0E] text-2xl mb-2">
                     {item.name}
                   </h3>
-                  <p className="font-['DM_Sans'] text-[#2C1A0E]/70 text-sm leading-relaxed">
+                  <p className="font-['Inter'] text-[#2C1A0E]/70 text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -121,7 +121,7 @@ export function MenuSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <button className="bg-[#2C1A0E] text-[#F5ECD7] px-8 py-4 rounded-full font-['DM_Sans'] text-lg hover:bg-[#3d2918] transition-all duration-300 hover:scale-105 shadow-xl">
+          <button className="bg-[#2C1A0E] text-[#F5ECD7] px-8 py-4 rounded-full font-['Inter'] text-lg hover:bg-[#3d2918] transition-all duration-300 hover:scale-105 shadow-xl">
             Ver mais
           </button>
         </motion.div>

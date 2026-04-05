@@ -48,8 +48,8 @@ export function Navbar() {
             className="flex items-center gap-2 group"
           >
             <Coffee className="w-8 h-8 text-[#C9A84C] group-hover:rotate-12 transition-transform duration-300" />
-            <span className="font-['Playfair_Display'] text-[#F5ECD7] text-2xl">
-              Café & Madeira
+            <span className="font-['Inter'] text-[#F5ECD7] text-2xl">
+              aura cup
             </span>
           </a>
 
@@ -60,12 +60,12 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={e => scrollToSection(e, link.href)}
-                className="font-['DM_Sans'] text-[#F5ECD7] hover:text-[#C9A84C] transition-colors duration-300"
+                className="font-['Inter'] text-[#F5ECD7] hover:text-[#C9A84C] transition-colors duration-300"
               >
                 {link.name}
               </a>
             ))}
-            <button className="bg-[#C9A84C] text-[#2C1A0E] px-6 py-2.5 rounded-full font-['DM_Sans'] hover:bg-[#d4b55c] transition-all duration-300 hover:scale-105">
+            <button className="bg-[#C9A84C] text-[#2C1A0E] px-6 py-2.5 rounded-full font-['Inter'] hover:bg-[#d4b55c] transition-all duration-300 hover:scale-105">
               Peça agora
             </button>
           </div>
@@ -99,12 +99,12 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={e => scrollToSection(e, link.href)}
-                  className="block font-['DM_Sans'] text-[#F5ECD7] hover:text-[#C9A84C] transition-colors duration-300 py-2"
+                  className="block font-['Inter'] text-[#F5ECD7] hover:text-[#C9A84C] transition-colors duration-300 py-2"
                 >
                   {link.name}
                 </a>
               ))}
-              <button className="w-full bg-[#C9A84C] text-[#2C1A0E] px-6 py-2.5 rounded-full font-['DM_Sans'] hover:bg-[#d4b55c] transition-colors duration-300">
+              <button className="w-full bg-[#C9A84C] text-[#2C1A0E] px-6 py-2.5 rounded-full font-['Inter'] hover:bg-[#d4b55c] transition-colors duration-300">
                 Peça agora
               </button>
             </div>

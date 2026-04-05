@@ -108,10 +108,10 @@ export function TestimonialsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-['Playfair_Display'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
+          <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
             Oque nossos clientes dizem?
           </h2>
-          <p className="font-['DM_Sans'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
+          <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
             Não leve em conta apenas oque falamos, leia oque alguns de nossos
             maiores clientes ja falaram:
           </p>
@@ -136,21 +136,21 @@ export function TestimonialsSection() {
                     ))}
                   </div>
 
-                  <p className="font-['DM_Sans'] text-[#2C1A0E]/80 text-base leading-relaxed mb-6">
+                  <p className="font-['Inter'] text-[#2C1A0E]/80 text-base leading-relaxed mb-6">
                     "{testemunho.text}"
                   </p>
 
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-[#8A9E7B] flex items-center justify-center">
-                      <span className="font-['DM_Sans'] text-white text-lg">
+                      <span className="font-['Inter'] text-white text-lg">
                         {testemunho.avatar}
                       </span>
                     </div>
                     <div>
-                      <div className="font-['Playfair_Display'] text-[#2C1A0E] text-lg">
+                      <div className="font-['Inter'] text-[#2C1A0E] text-lg">
                         {testemunho.name}
                       </div>
-                      <div className="font-['DM_Sans'] text-[#2C1A0E]/60 text-sm">
+                      <div className="font-['Inter'] text-[#2C1A0E]/60 text-sm">
                         {testemunho.role}
                       </div>
                     </div>

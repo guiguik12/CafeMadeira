@@ -22,18 +22,19 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Coffee className="w-8 h-8 text-[#C9A84C]" />
-              <span className="font-['Playfair_Display'] text-2xl">
-                Café & Madeira
+              <span className="font-['Inter'] text-2xl">
+                AURA CUP
+
               </span>
             </div>
-            <p className="font-['DM_Sans'] text-[#F5ECD7]/70 text-sm leading-relaxed">
-              Café & Madeira — onde cada xícara conta uma história desde 2016.
+            <p className="font-['Inter'] text-[#F5ECD7]/70 text-sm leading-relaxed">
+              AURA CUP — onde cada xícara conta uma história desde 2016.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-['Playfair_Display'] text-xl mb-4">
+            <h3 className="font-['Inter'] text-xl mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -41,7 +42,7 @@ export function Footer() {
                 <a
                   href="#menu"
                   onClick={e => scrollToSection(e, '#menu')}
-                  className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
+                  className="font-['Inter'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Menu
                 </a>
@@ -50,7 +51,7 @@ export function Footer() {
                 <a
                   href="#about"
                   onClick={e => scrollToSection(e, '#about')}
-                  className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
+                  className="font-['Inter'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Sobre nós
                 </a>
@@ -59,7 +60,7 @@ export function Footer() {
                 <a
                   href="#gallery"
                   onClick={e => scrollToSection(e, '#gallery')}
-                  className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
+                  className="font-['Inter'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Galeria
                 </a>
@@ -68,7 +69,7 @@ export function Footer() {
                 <a
                   href="#location"
                   onClick={e => scrollToSection(e, '#location')}
-                  className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
+                  className="font-['Inter'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Contato
                 </a>
@@ -78,8 +79,8 @@ export function Footer() {
 
           {/* Hours */}
           <div>
-            <h3 className="font-['Playfair_Display'] text-xl mb-4">Hours</h3>
-            <ul className="space-y-2 font-['DM_Sans'] text-[#F5ECD7]/70 text-sm">
+            <h3 className="font-['Inter'] text-xl mb-4">Hours</h3>
+            <ul className="space-y-2 font-['Inter'] text-[#F5ECD7]/70 text-sm">
               <li>Seg - Sext: 7:00 - 20:00</li>
               <li>Sábado: 8:00 - 21:00</li>
               <li>Domingo: 8:00 - 7:00</li>
@@ -88,15 +89,15 @@ export function Footer() {
 
           {/* Notícias */}
           <div>
-            <h3 className="font-['Playfair_Display'] text-xl mb-4">Notícias</h3>
-            <p className="font-['DM_Sans'] text-[#F5ECD7]/70 text-sm mb-4">
+            <h3 className="font-['Inter'] text-xl mb-4">Notícias</h3>
+            <p className="font-['Inter'] text-[#F5ECD7]/70 text-sm mb-4">
               Se inscreva para receber promoções e novidades.
             </p>
             <div className="flex gap-2">
               <input
                 type="email"
                 placeholder="Seu email"
-                className="flex-1 px-4 py-2 rounded-full bg-[#F5ECD7]/10 border border-[#F5ECD7]/20 text-[#F5ECD7] placeholder-[#F5ECD7]/50 focus:outline-none focus:border-[#C9A84C] font-['DM_Sans'] text-sm"
+                className="flex-1 px-4 py-2 rounded-full bg-[#F5ECD7]/10 border border-[#F5ECD7]/20 text-[#F5ECD7] placeholder-[#F5ECD7]/50 focus:outline-none focus:border-[#C9A84C] font-['Inter'] text-sm"
               />
               <button className="bg-[#C9A84C] text-[#2C1A0E] p-2 rounded-full hover:bg-[#d4b55c] transition-colors duration-300">
                 <Mail className="w-5 h-5" />
@@ -107,8 +108,8 @@ export function Footer() {
 
         {/* Social & Copyright */}
         <div className="border-t border-[#F5ECD7]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-['DM_Sans'] text-[#F5ECD7]/60 text-sm">
-            © 2026 Café & Café. All rights reserved.
+          <p className="font-['Inter'] text-[#F5ECD7]/60 text-sm">
+            © 2026 AURA CUP. All rights reserved.
           </p>
 
           <div className="flex gap-4">
