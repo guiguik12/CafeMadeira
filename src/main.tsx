@@ -1,10 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './app/App.tsx'  // ← CAMINHO CORRETO agora!
-import './styles/tailwind.css'  // Tailwind também
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './app/App.tsx';
+import './styles/tailwind.css';
 
-ReactDOM.createRoot(document.getElementById('root')! as HTMLElement).render(
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error('Root element not found');
+}
+
+createRoot(rootElement).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

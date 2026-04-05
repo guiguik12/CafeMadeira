@@ -1,4 +1,4 @@
 /**
 PostCSS
 **/
-export default {}
+export default {};

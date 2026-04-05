@@ -1,17 +1,12 @@
-import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
+import { motion, useInView } from 'motion/react';
+import { useRef } from 'react';
 
 export function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section
-      id="about"
-      ref={ref}
-      className="py-20 md:py-32 bg-[#F5ECD7]"
-    >
+    <section id="about" ref={ref} className="py-20 md:py-32 bg-[#F5ECD7]">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
@@ -44,27 +39,24 @@ export function AboutSection() {
             </h2>
 
             <p className="font-['DM_Sans'] text-[#2C1A0E]/80 text-lg mb-6 leading-relaxed">
-              A proposta da Café & Café sempre foi oferecer mais
-              do que sabores marcantes. Eu queria construir uma
-              experiência — um ambiente em que o aroma do café
-              fresco, o atendimento próximo e a atmosfera
+              A proposta da Café & Café sempre foi oferecer mais do que sabores
+              marcantes. Eu queria construir uma experiência — um ambiente em
+              que o aroma do café fresco, o atendimento próximo e a atmosfera
               tranquila fizessem cada cliente se sentir em casa.
             </p>
 
             <p className="font-['DM_Sans'] text-[#2C1A0E]/80 text-lg mb-8 leading-relaxed">
-              O nome Café & Café carrega justamente essa
-              essência. Ele representa os diferentes momentos
-              que o café acompanha: o primeiro gole da manhã, a
-              conversa da tarde, a pausa entre compromissos e os
-              encontros que ficam na memória.
+              O nome Café & Café carrega justamente essa essência. Ele
+              representa os diferentes momentos que o café acompanha: o primeiro
+              gole da manhã, a conversa da tarde, a pausa entre compromissos e
+              os encontros que ficam na memória.
             </p>
 
             {/* Pull Quote */}
             <div className="relative pl-6 border-l-4 border-[#C9A84C] my-8">
               <p className="font-['Playfair_Display'] text-[#2C1A0E] text-2xl md:text-3xl italic">
-                "O café não é apenas uma bebida, mas uma
-                experiência criada com amor e repleta de
-                diferentes sensações."
+                "O café não é apenas uma bebida, mas uma experiência criada com
+                amor e repleta de diferentes sensações."
               </p>
               <p className="font-['DM_Sans'] text-[#8A9E7B] mt-2">
                 — Luiz Ribeiro, Fundador

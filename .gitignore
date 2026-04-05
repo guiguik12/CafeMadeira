@@ -14,6 +14,11 @@ node_modules/
 # Production build
 dist/
 dist-ssr/
+tsconfig.json
+tsconfig.node.json
+preetierrc.json
+package-lock.json
+package.json
 
 # Vite
 .vite/
