@@ -2,13 +2,12 @@
 
 :root {
   --font-size: 16px;
-  
-  /* Coffee Shop Brand Colors */
-  --espresso: #2C1A0E;
-  --cream: #F5ECD7;
-  --gold: #C9A84C;
-  --sage: #8A9E7B;
-  
+
+  --espresso: #2c1a0e;
+  --cream: #f5ecd7;
+  --gold: #c9a84c;
+  --sage: #8a9e7b;
+
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;

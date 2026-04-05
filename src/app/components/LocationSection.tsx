@@ -1,24 +1,19 @@
-import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
-import { MapPin, Clock, Phone, Mail } from "lucide-react";
+import { motion, useInView } from 'motion/react';
+import { useRef } from 'react';
+import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
 export function LocationSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const hours = [
-    { day: "Segunda - Sexta", time: "7:00 - 20:00" },
-    { day: "Sábado", time: "8:00 - 21:00" },
-    { day: "Domingo", time: "8:00 - 19:00" },
+    { day: 'Segunda - Sexta', time: '7:00 - 20:00' },
+    { day: 'Sábado', time: '8:00 - 21:00' },
+    { day: 'Domingo', time: '8:00 - 19:00' },
   ];
 
   return (
-    <section
-      id="location"
-      ref={ref}
-      className="py-20 md:py-32 bg-[#F5ECD7]"
-    >
+    <section id="location" ref={ref} className="py-20 md:py-32 bg-[#F5ECD7]">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
         {/* Header */}
         <motion.div
@@ -47,9 +42,7 @@ export function LocationSection() {
             <div className="w-full h-full bg-gradient-to-br from-[#8A9E7B] to-[#C9A84C] flex items-center justify-center">
               <div className="text-center text-white">
                 <MapPin className="w-16 h-16 mx-auto mb-4 opacity-80" />
-                <p className="font-['DM_Sans'] text-xl">
-                  Mapa Interativo
-                </p>
+                <p className="font-['DM_Sans'] text-xl">Mapa Interativo</p>
                 <p className="font-['DM_Sans'] text-sm opacity-80 mt-2">
                   (Google Maps Aqui)
                 </p>
@@ -104,9 +97,9 @@ export function LocationSection() {
                     Horários:
                   </h3>
                   <div className="space-y-3">
-                    {hours.map((schedule, index) => (
+                    {hours.map(schedule => (
                       <div
-                        key={index}
+                        key={schedule.day}
                         className="flex justify-between items-center py-2 border-b border-[#2C1A0E]/10"
                       >
                         <span className="font-['DM_Sans'] text-[#2C1A0E]/80">

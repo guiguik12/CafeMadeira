@@ -1,20 +1,16 @@
-import {
-  Coffee,
-  Instagram,
-  Facebook,
-  Twitter,
-  Mail,
-} from "lucide-react";
+import { Coffee, Mail } from 'lucide-react';
+import { FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export function Footer() {
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
+    href: string
   ) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -31,8 +27,7 @@ export function Footer() {
               </span>
             </div>
             <p className="font-['DM_Sans'] text-[#F5ECD7]/70 text-sm leading-relaxed">
-              Café & Madeira — onde cada xícara conta uma história
-              desde 2016.
+              Café & Madeira — onde cada xícara conta uma história desde 2016.
             </p>
           </div>
 
@@ -45,7 +40,7 @@ export function Footer() {
               <li>
                 <a
                   href="#menu"
-                  onClick={(e) => scrollToSection(e, "#menu")}
+                  onClick={e => scrollToSection(e, '#menu')}
                   className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Menu
@@ -54,7 +49,7 @@ export function Footer() {
               <li>
                 <a
                   href="#about"
-                  onClick={(e) => scrollToSection(e, "#about")}
+                  onClick={e => scrollToSection(e, '#about')}
                   className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Sobre nós
@@ -63,9 +58,7 @@ export function Footer() {
               <li>
                 <a
                   href="#gallery"
-                  onClick={(e) =>
-                    scrollToSection(e, "#gallery")
-                  }
+                  onClick={e => scrollToSection(e, '#gallery')}
                   className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Galeria
@@ -74,9 +67,7 @@ export function Footer() {
               <li>
                 <a
                   href="#location"
-                  onClick={(e) =>
-                    scrollToSection(e, "#location")
-                  }
+                  onClick={e => scrollToSection(e, '#location')}
                   className="font-['DM_Sans'] text-[#F5ECD7]/70 hover:text-[#C9A84C] transition-colors duration-300 text-sm"
                 >
                   Contato
@@ -87,9 +78,7 @@ export function Footer() {
 
           {/* Hours */}
           <div>
-            <h3 className="font-['Playfair_Display'] text-xl mb-4">
-              Hours
-            </h3>
+            <h3 className="font-['Playfair_Display'] text-xl mb-4">Hours</h3>
             <ul className="space-y-2 font-['DM_Sans'] text-[#F5ECD7]/70 text-sm">
               <li>Seg - Sext: 7:00 - 20:00</li>
               <li>Sábado: 8:00 - 21:00</li>
@@ -99,9 +88,7 @@ export function Footer() {
 
           {/* Notícias */}
           <div>
-            <h3 className="font-['Playfair_Display'] text-xl mb-4">
-              Notícias
-            </h3>
+            <h3 className="font-['Playfair_Display'] text-xl mb-4">Notícias</h3>
             <p className="font-['DM_Sans'] text-[#F5ECD7]/70 text-sm mb-4">
               Se inscreva para receber promoções e novidades.
             </p>
@@ -125,24 +112,15 @@ export function Footer() {
           </p>
 
           <div className="flex gap-4">
-            <a
-              href="#"
-              className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#C9A84C] hover:text-[#2C1A0E] transition-all duration-300"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#C9A84C] hover:text-[#2C1A0E] transition-all duration-300"
-            >
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#C9A84C] hover:text-[#2C1A0E] transition-all duration-300"
-            >
-              <Twitter className="w-5 h-5" />
-            </a>
+            <button className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#C9A84C] hover:text-[#2C1A0E] transition-all duration-300">
+              <FaInstagram className="w-5 h-5" />
+            </button>
+            <button className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#C9A84C] hover:text-[#2C1A0E] transition-all duration-300">
+              <FaFacebook className="w-5 h-5" />
+            </button>
+            <button className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#C9A84C] hover:text-[#2C1A0E] transition-all duration-300">
+              <FaXTwitter className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>

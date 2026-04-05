@@ -1,5 +1,4 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import Slider from 'react-slick';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -39,15 +38,27 @@ const testemunhos = [
   },
 ];
 
-function CustomArrow({ direction, onClick }: { direction: 'prev' | 'next'; onClick?: () => void }) {
+function CustomArrow({
+  direction,
+  onClick,
+}: Readonly<{
+  direction: 'prev' | 'next';
+  onClick?: () => void;
+}>) {
   return (
     <button
       onClick={onClick}
       className={`absolute top-1/2 -translate-y-1/2 ${
-        direction === 'prev' ? 'left-0 -translate-x-12' : 'right-0 translate-x-12'
+        direction === 'prev'
+          ? 'left-0 -translate-x-12'
+          : 'right-0 translate-x-12'
       } z-10 bg-[#C9A84C] hover:bg-[#d4b55c] text-[#2C1A0E] rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hidden lg:block`}
     >
-      {direction === 'prev' ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
+      {direction === 'prev' ? (
+        <ChevronLeft className="w-6 h-6" />
+      ) : (
+        <ChevronRight className="w-6 h-6" />
+      )}
     </button>
   );
 }
@@ -85,9 +96,12 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section id="testemunhos" ref={ref} className="py-20 md:py-32 bg-white overflow-hidden">
+    <section
+      id="testemunhos"
+      ref={ref}
+      className="py-20 md:py-32 bg-white overflow-hidden"
+    >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -98,11 +112,11 @@ export function TestimonialsSection() {
             Oque nossos clientes dizem?
           </h2>
           <p className="font-['DM_Sans'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
-            Não leve em conta apenas oque falamos, leia oque alguns de nossos maiores clientes ja falaram:
+            Não leve em conta apenas oque falamos, leia oque alguns de nossos
+            maiores clientes ja falaram:
           </p>
         </motion.div>
 
-        {/* Carousel */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -110,22 +124,22 @@ export function TestimonialsSection() {
           className="relative px-4 lg:px-16"
         >
           <Slider {...settings}>
-            {testemunhos.map((testemunho) => (
+            {testemunhos.map(testemunho => (
               <div key={testemunho.id} className="px-4">
                 <div className="bg-[#F5ECD7] rounded-2xl p-8 shadow-lg h-full">
-                  {/* Stars */}
                   <div className="flex gap-1 mb-4">
-                    {[...Array(testemunho.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-[#C9A84C] text-[#C9A84C]" />
+                    {Array.from({ length: testemunho.rating }, (_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-[#C9A84C] text-[#C9A84C]"
+                      />
                     ))}
                   </div>
 
-                  {/* Text */}
                   <p className="font-['DM_Sans'] text-[#2C1A0E]/80 text-base leading-relaxed mb-6">
                     "{testemunho.text}"
                   </p>
 
-                  {/* Author */}
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-[#8A9E7B] flex items-center justify-center">
                       <span className="font-['DM_Sans'] text-white text-lg">
@@ -149,7 +163,6 @@ export function TestimonialsSection() {
       </div>
 
       <style>{`
-        /* Slick Carousel Base Styles */
         .slick-slider {
           position: relative;
           display: block;
