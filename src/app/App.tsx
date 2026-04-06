@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
@@ -8,13 +9,20 @@ import { LocationSection } from './components/LocationSection';
 import { Footer } from './components/Footer';
 
 export default function App() {
+  useEffect(() => {
+    globalThis.scrollTo(0, 0);
+    if (globalThis.location.hash) {
+      globalThis.history.replaceState(null, '', globalThis.location.pathname);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navbar />
       <main>
         <Hero />
-        <AboutSection />
         <MenuSection />
+        <AboutSection />
         <GallerySection />
         <TestimonialsSection />
         <LocationSection />

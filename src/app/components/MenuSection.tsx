@@ -57,7 +57,7 @@ export function MenuSection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="menu" ref={ref} className="py-20 md:py-32 bg-white">
+    <section id="menu" ref={ref} className="py-20 md:py-32 bg-[#E3E3E3]">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
         {/* Header */}
         <motion.div

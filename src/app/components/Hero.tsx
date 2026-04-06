@@ -16,6 +16,8 @@ export function Hero() {
           backgroundPosition: 'center',
         }}
       ></div>
+
+      <div className="absolute inset-0 bg-black/40"></div>
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-2">
         <motion.div
           initial={{ opacity: 0 }}
