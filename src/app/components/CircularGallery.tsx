@@ -485,7 +485,7 @@ class App {
     this.createScene();
     this.onResize();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font);
+    this.createMedias(items, textColor, borderRadius, font, bend);
     this.update();
     this.addEventListeners();
   }
@@ -520,10 +520,10 @@ class App {
 
   createMedias(
     items: { image: string; text: string }[] | undefined,
-    bend: number = 1,
     textColor: string,
     borderRadius: number,
-    font: string
+    font: string,
+    bend: number = 1
   ) {
     const defaultItems = [
       {

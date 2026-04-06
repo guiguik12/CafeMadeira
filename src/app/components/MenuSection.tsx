@@ -59,20 +59,15 @@ export function MenuSection() {
   return (
     <section id="menu" ref={ref} className="py-20 md:py-32 bg-[#E3E3E3]">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
-            Nosso Cardápio
+          <h2 className="font-['Inter'] text-[#5B3130] text-4xl md:text-5xl lg:text-6xl">
+            MENU
           </h2>
-          <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
-            Conheça nossa seleção de bebidas artesanais e acompanhamentos
-            cuidadosamente escolhidos.
-          </p>
         </motion.div>
 
         {/* Menu Grid */}

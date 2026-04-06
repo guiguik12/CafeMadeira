@@ -1,13 +1,20 @@
 import CardNav from './CardNav';
+import { useSection } from '../context/SectionContext';
 
 export function Navbar() {
+  const { setActiveSection } = useSection();
+
+  const handleNavigation = (section: string) => {
+    setActiveSection(section as 'menu' | 'about' | 'gallery' | 'testimonials' | 'location');
+  };
+
   const navItems = [
     {
       label: 'Menu',
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
-        { label: 'Cafés', href: '#menu', ariaLabel: 'Cafés' },
+        { label: 'Cafés', onClick: () => handleNavigation('menu'), ariaLabel: 'Cafés' },
       ],
     },
     {
@@ -17,10 +24,10 @@ export function Navbar() {
       links: [
         {
           label: 'Nossa história',
-          href: '#about',
+          onClick: () => handleNavigation('about'),
           ariaLabel: 'Nossa história',
         },
-        { label: 'Valores', href: '#about', ariaLabel: 'Valores' },
+        { label: 'Valores', onClick: () => handleNavigation('about'), ariaLabel: 'Valores' },
       ],
     },
     {
@@ -28,8 +35,9 @@ export function Navbar() {
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
-        { label: 'Galeria', href: '#gallery', ariaLabel: 'Galeria' },
-        { label: 'Localização', href: '#location', ariaLabel: 'Localização' },
+        { label: 'Galeria', onClick: () => handleNavigation('gallery'), ariaLabel: 'Galeria' },
+        { label: 'Localização', onClick: () => handleNavigation('location'), ariaLabel: 'Localização' },
+        { label: 'Depoimentos', onClick: () => handleNavigation('testimonials'), ariaLabel: 'Depoimentos' },
       ],
     },
   ];
@@ -42,7 +50,7 @@ export function Navbar() {
       menuColor="#5B3130"
       buttonTextColor="#5B3130"
       ease="circ.out"
-      className="fixed top-0 left-0 right-0 w-full max-w-none"
+      className="fixed top-0 left-0 right-0 w-full max-w-none z-50"
     />
   );
 }

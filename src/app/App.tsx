@@ -7,27 +7,36 @@ import { GallerySection } from './components/GallerySection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { LocationSection } from './components/LocationSection';
 import { Footer } from './components/Footer';
+import { useSection } from './context/SectionContext';
 
-export default function App() {
+function AppContent() {
+  const { activeSection } = useSection();
+
   useEffect(() => {
     globalThis.scrollTo(0, 0);
     if (globalThis.location.hash) {
       globalThis.history.replaceState(null, '', globalThis.location.pathname);
     }
-  }, []);
+  }, [activeSection]);
 
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
-        <Hero />
-        <MenuSection />
-        <AboutSection />
-        <GallerySection />
-        <TestimonialsSection />
-        <LocationSection />
+      <main className="flex-1">
+        {activeSection === 'menu' && (
+          <>
+            <Hero />
+            <MenuSection />
+          </>
+        )}
+        {activeSection === 'about' && <AboutSection />}
+        {activeSection === 'gallery' && <GallerySection />}
+        {activeSection === 'testimonials' && <TestimonialsSection />}
+        {activeSection === 'location' && <LocationSection />}
       </main>
       <Footer />
     </div>
   );
 }
+
+export default AppContent;

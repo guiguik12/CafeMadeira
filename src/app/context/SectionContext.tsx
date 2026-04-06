@@ -1,0 +1,31 @@
+import { createContext, useContext, useState, ReactNode, useMemo } from 'react';
+
+type Section = 'menu' | 'about' | 'gallery' | 'testimonials' | 'location';
+
+interface SectionContextType {
+  activeSection: Section;
+  setActiveSection: (section: Section) => void;
+}
+
+const SectionContext = createContext<SectionContextType | undefined>(undefined);
+
+export function SectionProvider({
+  children,
+}: Readonly<{ children: ReactNode }>) {
+  const [activeSection, setActiveSection] = useState<Section>('menu');
+  const value = useMemo(
+    () => ({ activeSection, setActiveSection }),
+    [activeSection]
+  );
+  return (
+    <SectionContext.Provider value={value}>{children}</SectionContext.Provider>
+  );
+}
+
+export function useSection() {
+  const context = useContext(SectionContext);
+  if (!context) {
+    throw new Error('useSection deve ser usado dentro de SectionProvider');
+  }
+  return context;
+}

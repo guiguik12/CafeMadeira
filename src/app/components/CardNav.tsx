@@ -9,7 +9,8 @@ import { ShoppingCart } from 'lucide-react';
 
 type CardNavLink = {
   label: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   ariaLabel: string;
 };
 
@@ -34,13 +35,11 @@ export interface CardNavProps {
 
 const CardNav: React.FC<CardNavProps> = ({
   logo,
-  logoAlt = 'Logo',
   items,
   className = '',
   ease = 'circ.out',
   baseColor = '#fff',
   menuColor,
-  buttonBgColor,
   buttonTextColor,
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -194,7 +193,10 @@ const CardNav: React.FC<CardNavProps> = ({
 
           <div className="logo-container flex items-center gap-2 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
             <img src={logo} alt={''} className="logo h-[28px]" />
-            <span className="text-sm font-semibold uppercase tracking-wide" style={{ color: menuColor || '#000' }}>
+            <span
+              className="text-sm font-semibold uppercase tracking-wide"
+              style={{ color: menuColor || '#000' }}
+            >
               {logo}
             </span>
           </div>
@@ -232,7 +234,13 @@ const CardNav: React.FC<CardNavProps> = ({
                   <a
                     key={`${lnk.label}-${i}`}
                     className="nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
-                    href={lnk.href}
+                    href={lnk.href || '#'}
+                    onClick={e => {
+                      if (lnk.onClick) {
+                        e.preventDefault();
+                        lnk.onClick();
+                      }
+                    }}
                     aria-label={lnk.ariaLabel}
                   >
                     <ArrowTopRightIcon
