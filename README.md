@@ -70,15 +70,6 @@ It serves as a portfolio showcase demonstrating expertise in:
 | React Context API | State management                     |
 | Shadcn/ui         | Component library                    |
 
-## Deployment
-
-The `dist/` folder can be deployed to:
-
-- GitHub Pages
-- Vercel
-
-If deploying under a subpath, configure the `base` option in `vite.config.js`.
-
 ## Credits
 
 **Design inspiration:**
