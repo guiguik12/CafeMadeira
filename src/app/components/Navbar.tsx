@@ -14,30 +14,30 @@ export function Navbar() {
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
-        { label: 'Cafés', onClick: () => handleNavigation('menu'), ariaLabel: 'Cafés' },
+        { label: 'Coffee', onClick: () => handleNavigation('menu'), ariaLabel: 'Coffee' },
       ],
     },
     {
-      label: 'Sobre',
+      label: 'About',
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
         {
-          label: 'Nossa história',
+          label: 'History',
           onClick: () => handleNavigation('about'),
-          ariaLabel: 'Nossa história',
+          ariaLabel: 'History',
         },
-        { label: 'Valores', onClick: () => handleNavigation('about'), ariaLabel: 'Valores' },
+        { label: 'Mission', onClick: () => handleNavigation('about'), ariaLabel: 'Mission' },
       ],
     },
     {
-      label: 'Contato',
+      label: 'Contacts',
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
-        { label: 'Galeria', onClick: () => handleNavigation('gallery'), ariaLabel: 'Galeria' },
-        { label: 'Localização', onClick: () => handleNavigation('location'), ariaLabel: 'Localização' },
-        { label: 'Depoimentos', onClick: () => handleNavigation('testimonials'), ariaLabel: 'Depoimentos' },
+        { label: 'Gallery', onClick: () => handleNavigation('gallery'), ariaLabel: 'Gallery' },
+        { label: 'Location', onClick: () => handleNavigation('location'), ariaLabel: 'Location' },
+        { label: 'Feedback', onClick: () => handleNavigation('testimonials'), ariaLabel: 'Feedback' },
       ],
     },
   ];

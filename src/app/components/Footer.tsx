@@ -1,6 +1,7 @@
 import { Mail } from 'lucide-react';
-import { FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import { motion } from 'motion/react';
 import Plasma from './Plasma';
 import { useSection } from '../context/SectionContext';
 
@@ -26,6 +27,7 @@ export function Footer() {
               <span className="font-['Inter'] text-2xl text-[#F5ECD7]">
                 AURA CUP
               </span>
+              <span className="text-sm text-[#F5ECD7]/50">— Coffee Shop</span>
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center md:items-center gap-4">
@@ -37,7 +39,7 @@ export function Footer() {
                       e.preventDefault();
                       setActiveSection('menu');
                     }}
-                    className="font-['Inter'] text-[#F5ECD7]/80 hover:text-[#5B3130] transition-colors duration-300 text-sm bg-transparent border-none cursor-pointer"
+                    className="font-['Inter'] text-[#F5ECD7] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
                     Menu
                   </button>
@@ -48,7 +50,7 @@ export function Footer() {
                       e.preventDefault();
                       setActiveSection('about');
                     }}
-                    className="font-['Inter'] text-[#F5ECD7]/80 hover:text-[#5B3130] transition-colors duration-300 text-sm bg-transparent border-none cursor-pointer"
+                    className="font-['Inter'] text-[#F5ECD7] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
                     About
                   </button>
@@ -59,7 +61,7 @@ export function Footer() {
                       e.preventDefault();
                       setActiveSection('gallery');
                     }}
-                    className="font-['Inter'] text-[#F5ECD7]/80 hover:text-[#5B3130] transition-colors duration-300 text-sm bg-transparent border-none cursor-pointer"
+                    className="font-['Inter'] text-[#F5ECD7] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
                     Gallery
                   </button>
@@ -70,7 +72,7 @@ export function Footer() {
                       e.preventDefault();
                       setActiveSection('location');
                     }}
-                    className="font-['Inter'] text-[#F5ECD7]/80 hover:text-[#5B3130] transition-colors duration-300 text-sm bg-transparent border-none cursor-pointer"
+                    className="font-['Inter'] text-[#F5ECD7] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
                     Contacts
                   </button>
@@ -79,15 +81,36 @@ export function Footer() {
             </div>
             <div className="flex flex-col items-center md:items-end justify-center gap-2">
               <div className="flex gap-2">
-                <button className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#5B3130] hover:text-[#F5ECD7] transition-all duration-300">
+                <motion.a
+                  href="mailto:contato@auracup.com"
+                  className="bg-[#5B3130] p-2 rounded-full text-[#F5ECD7] transition-all duration-300 inline-block"
+                >
                   <Mail className="w-5 h-5" />
-                </button>
-                <button className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#5B3130] hover:text-[#F5ECD7] transition-all duration-300">
+                </motion.a>
+                <motion.a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#5B3130] p-2 rounded-full text-[#F5ECD7] transition-all duration-300 inline-block"
+                >
                   <FaInstagram className="w-5 h-5" />
-                </button>
-                <button className="bg-[#F5ECD7]/10 p-2 rounded-full hover:bg-[#5B3130] hover:text-[#F5ECD7] transition-all duration-300">
+                </motion.a>
+                <motion.a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#5B3130] p-2 rounded-full text-[#F5ECD7] transition-all duration-300 inline-block"
+                >
                   <FaXTwitter className="w-5 h-5" />
-                </button>
+                </motion.a>
+                <motion.a
+                  href="https://github.com/guiguik12/CafeMadeira"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#5B3130] p-2 rounded-full text-[#F5ECD7] transition-all duration-300 inline-block"
+                >
+                  <FaGithub className="w-5 h-5" />
+                </motion.a>
               </div>
             </div>
           </div>

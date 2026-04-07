@@ -42,7 +42,6 @@ const CardNav: React.FC<CardNavProps> = ({
   menuColor,
   buttonTextColor,
 }) => {
-  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
@@ -144,15 +143,23 @@ const CardNav: React.FC<CardNavProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [isExpanded]);
 
+  const closeMenu = () => {
+    const tl = tlRef.current;
+    if (!tl || !isExpanded) return;
+
+    tl.reverse();
+
+    setTimeout(() => {
+      setIsExpanded(false);
+    }, 500);
+  };
+
   const toggleMenu = () => {
     const tl = tlRef.current;
     if (!tl) return;
     if (isExpanded) {
-      setIsHamburgerOpen(false);
-      tl.eventCallback('onReverseComplete', () => setIsExpanded(false));
-      tl.reverse();
+      closeMenu();
     } else {
-      setIsHamburgerOpen(true);
       setIsExpanded(true);
       tl.play(0);
     }
@@ -238,7 +245,12 @@ const CardNav: React.FC<CardNavProps> = ({
                     onClick={e => {
                       if (lnk.onClick) {
                         e.preventDefault();
+                        setIsExpanded(false);
                         lnk.onClick();
+                        const tl = tlRef.current;
+                        if (tl) {
+                          tl.reverse();
+                        }
                       }
                     }}
                     aria-label={lnk.ariaLabel}
