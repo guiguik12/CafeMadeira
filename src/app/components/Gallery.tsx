@@ -1,33 +1,18 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
-import CircularGallery from './CircularGallery';
 import auracupHand from '@/assets/auracup_hand.gif';
 import auracupCups from '@/assets/auracup_cups.png';
 import auracupLogo from '@/assets/auracup_logo.png';
 import auracupMenu from '@/assets/auracup_menu.gif';
 import auracupShirt from '@/assets/auracup_shirt.png';
+import FlyingPosters from './FlyingPosters';
 
-const galleryImages = [
-  {
-    image: auracupLogo,
-    text: '',
-  },
-  {
-    image: auracupHand,
-    text: '',
-  },
-  {
-    image: auracupCups,
-    text: '',
-  },
-  {
-    image: auracupMenu,
-    text: '',
-  },
-  {
-    image: auracupShirt,
-    text: '',
-  },
+const items = [
+  auracupHand,
+  auracupCups,
+  auracupLogo,
+  auracupMenu,
+  auracupShirt,
 ];
 
 export function Gallery() {
@@ -51,21 +36,21 @@ export function Gallery() {
           </p>
         </motion.div>
       </div>
-      
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full h-screen md:h-[calc(100vh-120px)]"
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="w-full h-[545px]"
       >
-        <CircularGallery
-          items={galleryImages}
-          bend={0}
-          textColor="#E3E3E3"
-          borderRadius={0.01}
-          font="bold 24px Inter"
-          scrollSpeed={2}
-          scrollEase={0.05}
+        <FlyingPosters
+          items={items}
+          planeWidth={320}
+          planeHeight={350}
+          distortion={2}
+          scrollEase={0.009}
+          cameraFov={15}
+          cameraZ={10}
         />
       </motion.div>
     </section>
