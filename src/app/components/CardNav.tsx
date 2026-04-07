@@ -31,6 +31,7 @@ export interface CardNavProps {
   menuColor?: string;
   buttonBgColor?: string;
   buttonTextColor?: string;
+  onLogoClick?: () => void;
 }
 
 const CardNav: React.FC<CardNavProps> = ({
@@ -41,6 +42,7 @@ const CardNav: React.FC<CardNavProps> = ({
   baseColor = '#fff',
   menuColor,
   buttonTextColor,
+  onLogoClick,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -187,18 +189,18 @@ const CardNav: React.FC<CardNavProps> = ({
           >
             {isExpanded ? (
               <Cross2Icon
-                className="w-5 h-5 group-hover:opacity-85"
+                className="w-6 h-6 group-hover:opacity-85"
                 aria-hidden="true"
               />
             ) : (
               <HamburgerMenuIcon
-                className="w-5 h-5 group-hover:opacity-85"
+                className="w-6 h-6 group-hover:opacity-85"
                 aria-hidden="true"
               />
             )}
           </button>
 
-          <div className="logo-container flex items-center gap-2 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+          <div className="logo-container flex items-center gap-2 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 cursor-pointer" onClick={onLogoClick}>
             <img src={logo} alt={''} className="logo h-[28px]" />
             <span
               className="text-sm font-semibold uppercase tracking-wide"

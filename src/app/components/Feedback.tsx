@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import Slider from 'react-slick';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const testemunhos = [
+const feedbacks = [
   {
     id: 1,
     name: 'Ana Silva',
@@ -63,7 +63,7 @@ function CustomArrow({
   );
 }
 
-export function TestimonialsSection() {
+export function Feedback() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -124,11 +124,11 @@ export function TestimonialsSection() {
           className="relative px-4 lg:px-16"
         >
           <Slider {...settings}>
-            {testemunhos.map(testemunho => (
-              <div key={testemunho.id} className="px-4">
+            {feedbacks.map(feedback => (
+              <div key={feedback.id} className="px-4">
                 <div className="bg-[#F5ECD7] rounded-2xl p-8 shadow-lg h-full">
                   <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testemunho.rating }, (_, i) => (
+                    {Array.from({ length: feedback.rating }, (_, i) => (
                       <Star
                         key={i}
                         className="w-5 h-5 fill-[#C9A84C] text-[#C9A84C]"
@@ -137,21 +137,21 @@ export function TestimonialsSection() {
                   </div>
 
                   <p className="font-['Inter'] text-[#2C1A0E]/80 text-base leading-relaxed mb-6">
-                    "{testemunho.text}"
+                    "{feedback.text}"
                   </p>
 
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-[#8A9E7B] flex items-center justify-center">
                       <span className="font-['Inter'] text-white text-lg">
-                        {testemunho.avatar}
+                        {feedback.avatar}
                       </span>
                     </div>
                     <div>
                       <div className="font-['Inter'] text-[#2C1A0E] text-lg">
-                        {testemunho.name}
+                        {feedback.name}
                       </div>
                       <div className="font-['Inter'] text-[#2C1A0E]/60 text-sm">
-                        {testemunho.role}
+                        {feedback.role}
                       </div>
                     </div>
                   </div>

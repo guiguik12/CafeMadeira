@@ -5,7 +5,7 @@ export function Navbar() {
   const { setActiveSection } = useSection();
 
   const handleNavigation = (section: string) => {
-    setActiveSection(section as 'menu' | 'about' | 'gallery' | 'testimonials' | 'location');
+    setActiveSection(section as 'home' | 'menu' | 'about' | 'gallery' | 'testimonials' | 'location');
   };
 
   const navItems = [
@@ -51,6 +51,7 @@ export function Navbar() {
       buttonTextColor="#5B3130"
       ease="circ.out"
       className="fixed top-0 left-0 right-0 w-full max-w-none z-50"
+      onLogoClick={() => handleNavigation('home')}
     />
   );
 }

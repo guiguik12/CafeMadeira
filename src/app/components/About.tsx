@@ -1,7 +1,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 
-export function AboutSection() {
+export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 

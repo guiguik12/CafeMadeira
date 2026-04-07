@@ -2,7 +2,7 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
-export function LocationSection() {
+export function Location() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 

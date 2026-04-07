@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode, useMemo } from 'react';
 
-type Section = 'menu' | 'about' | 'gallery' | 'testimonials' | 'location';
+type Section = 'home' | 'menu' | 'about' | 'gallery' | 'testimonials' | 'location';
 
 interface SectionContextType {
   activeSection: Section;
@@ -12,7 +12,7 @@ const SectionContext = createContext<SectionContextType | undefined>(undefined);
 export function SectionProvider({
   children,
 }: Readonly<{ children: ReactNode }>) {
-  const [activeSection, setActiveSection] = useState<Section>('menu');
+  const [activeSection, setActiveSection] = useState<Section>('home');
   const value = useMemo(
     () => ({ activeSection, setActiveSection }),
     [activeSection]

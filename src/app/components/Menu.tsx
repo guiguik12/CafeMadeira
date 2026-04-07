@@ -52,7 +52,7 @@ const menuItems = [
   },
 ];
 
-export function MenuSection() {
+export function Menu() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
