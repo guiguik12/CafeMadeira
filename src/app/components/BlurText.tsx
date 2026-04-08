@@ -67,7 +67,7 @@ export default function BlurText({
   return (
     <div className={className}>
       <motion.div
-        className="flex flex-wrap gap-1 justify-center"
+        className="flex flex-wrap gap-1 w-full"
         onAnimationComplete={onAnimationComplete}
       >
         {elements.map((element, i) => (
