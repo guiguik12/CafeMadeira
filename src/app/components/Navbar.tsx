@@ -5,7 +5,7 @@ export function Navbar() {
   const { setActiveSection } = useSection();
 
   const handleNavigation = (section: string) => {
-    setActiveSection(section as 'home' | 'menu' | 'about' | 'gallery' | 'testimonials' | 'location');
+    setActiveSection(section as 'home' | 'menu' | 'about' | 'gallery' | 'feedback' | 'location');
   };
 
   const navItems = [
@@ -27,7 +27,7 @@ export function Navbar() {
           onClick: () => handleNavigation('about'),
           ariaLabel: 'History',
         },
-        { label: 'Mission', onClick: () => handleNavigation('about'), ariaLabel: 'Mission' },
+        { label: 'Gallery', onClick: () => handleNavigation('gallery'), ariaLabel: 'Gallery' },
       ],
     },
     {
@@ -35,9 +35,8 @@ export function Navbar() {
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
-        { label: 'Gallery', onClick: () => handleNavigation('gallery'), ariaLabel: 'Gallery' },
         { label: 'Location', onClick: () => handleNavigation('location'), ariaLabel: 'Location' },
-        { label: 'Feedback', onClick: () => handleNavigation('testimonials'), ariaLabel: 'Feedback' },
+        { label: 'Feedback', onClick: () => handleNavigation('feedback'), ariaLabel: 'Feedback' },
       ],
     },
   ];

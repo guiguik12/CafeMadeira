@@ -97,7 +97,7 @@ export function Feedback() {
 
   return (
     <section
-      id="testemunhos"
+      id="feedback"
       ref={ref}
       className="py-20 md:py-32 bg-white overflow-hidden"
     >
