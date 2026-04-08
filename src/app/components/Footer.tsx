@@ -2,9 +2,11 @@ import { FaGithub } from 'react-icons/fa';
 import { motion } from 'motion/react';
 import Plasma from './Plasma';
 import { useSection } from '../context/SectionContext';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export function Footer() {
   const { setActiveSection } = useSection();
+  const { t } = useLanguage();
 
   return (
     <footer className="bg-black text-[#E3E3E3] py-16 relative">
@@ -25,7 +27,7 @@ export function Footer() {
               <span className="font-['Inter'] text-2xl text-[#E3E3E3]">
                 AURA CUP
               </span>
-              <span className="text-sm text-[#E3E3E3]/50">— Coffee Shop</span>
+              <span className="text-sm text-[#E3E3E3]/50">{t('footer.coffeeShop')}</span>
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center md:items-center gap-4">
@@ -39,7 +41,7 @@ export function Footer() {
                     }}
                     className="font-['Inter'] text-[#E3E3E3] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
-                    Home
+                    {t('footer.home')}
                   </button>
                 </li>
                 <li>
@@ -50,7 +52,7 @@ export function Footer() {
                     }}
                     className="font-['Inter'] text-[#E3E3E3] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
-                    Menu
+                    {t('footer.menu')}
                   </button>
                 </li>
                 <li>
@@ -61,7 +63,7 @@ export function Footer() {
                     }}
                     className="font-['Inter'] text-[#E3E3E3] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
-                    About
+                    {t('footer.about')}
                   </button>
                 </li>
                 <li>
@@ -72,7 +74,7 @@ export function Footer() {
                     }}
                     className="font-['Inter'] text-[#E3E3E3] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
-                    Gallery
+                    {t('footer.gallery')}
                   </button>
                 </li>
                 <li>
@@ -83,7 +85,7 @@ export function Footer() {
                     }}
                     className="font-['Inter'] text-[#E3E3E3] hover:text-[#6E6C68] transition-colors duration-300 text-sm border-none cursor-pointer"
                   >
-                    Contacts
+                    {t('footer.contacts')}
                   </button>
                 </li>
               </ul>
@@ -104,11 +106,11 @@ export function Footer() {
         </div>
         <div className="border-t border-[#E3E3E3]/20 pt-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="font-['Inter'] text-[#E3E3E3]/60 text-sm">
-            © Copyright 2026 — All Rights Reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex gap-3 font-['Inter'] text-[#E3E3E3]/60 text-sm underline">
-            <p>Terms of Use</p>
-            <p>Privacy Policy</p>
+            <p>{t('footer.terms')}</p>
+            <p>{t('footer.privacy')}</p>
           </div>
         </div>
       </div>

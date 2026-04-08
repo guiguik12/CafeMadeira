@@ -25,7 +25,7 @@ export function SectionProvider({
 export function useSection() {
   const context = useContext(SectionContext);
   if (!context) {
-    throw new Error('useSection deve ser usado dentro de SectionProvider');
+    throw new Error('useSection must be used inside a SectionProvider');
   }
   return context;
 }

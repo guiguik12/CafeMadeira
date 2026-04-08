@@ -6,6 +6,7 @@ import auracupLogo from '@/assets/auracup_logo.png';
 import auracupMenu from '@/assets/auracup_menu.gif';
 import auracupShirt from '@/assets/auracup_shirt.png';
 import FlyingPosters from './FlyingPosters';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const items = [
   auracupHand,
@@ -18,6 +19,7 @@ const items = [
 export function Gallery() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useLanguage();
 
   return (
     <section id="gallery" ref={ref} className="py-10 md:py-16 bg-[#E3E3E3]">
@@ -29,10 +31,10 @@ export function Gallery() {
           className="text-center"
         >
           <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-4xl lg:text-4xl mb-2">
-            GALERIA
+            {t('gallery.title')}
           </h2>
           <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
-            Onde o café encontra a atmosfera perfeita.
+            {t('gallery.subtitle')}
           </p>
         </motion.div>
       </div>

@@ -2,41 +2,7 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import Slider from 'react-slick';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-
-const feedbacks = [
-  {
-    id: 1,
-    name: 'Ana Silva',
-    role: 'Apaixonada por Café',
-    rating: 5,
-    text: 'A melhor experiência de café da cidade! O ambiente é aconchegante, os baristas são conhecedores, e cada xícara é perfeita.',
-    avatar: 'AS',
-  },
-  {
-    id: 2,
-    name: 'Carlos Mendes',
-    role: 'Cliente Frequente',
-    rating: 5,
-    text: 'Eu venho aqui toda manhã. O cappuccino é consistentemente excelente, e a equipe sempre me recebe com um sorriso caloroso.',
-    avatar: 'CM',
-  },
-  {
-    id: 3,
-    name: 'Julia Santos',
-    role: 'Blogueira de Comida',
-    rating: 5,
-    text: 'Um ótimo café! Todos os detalhes nos cafés e doces são dignos de parabéns. A arte nos cafés com certeza vale a espera.',
-    avatar: 'JS',
-  },
-  {
-    id: 4,
-    name: 'Roberto Lima',
-    role: 'Empresário',
-    rating: 5,
-    text: 'Local perfeito para reuniões. Ótimo café, assentos confortáveis e um ambiente produtivo. Altamente recomendado!',
-    avatar: 'RL',
-  },
-];
+import { useLanguage } from '../../i18n/LanguageContext';
 
 function CustomArrow({
   direction,
@@ -66,6 +32,42 @@ function CustomArrow({
 export function Feedback() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useLanguage();
+
+  const feedbacks = [
+    {
+      id: 1,
+      nameKey: 'feedback.person1',
+      roleKey: 'feedback.role1',
+      rating: 5,
+      textKey: 'feedback.text1',
+      avatar: 'AS',
+    },
+    {
+      id: 2,
+      nameKey: 'feedback.person2',
+      roleKey: 'feedback.role2',
+      rating: 5,
+      textKey: 'feedback.text2',
+      avatar: 'CM',
+    },
+    {
+      id: 3,
+      nameKey: 'feedback.person3',
+      roleKey: 'feedback.role3',
+      rating: 5,
+      textKey: 'feedback.text3',
+      avatar: 'JS',
+    },
+    {
+      id: 4,
+      nameKey: 'feedback.person4',
+      roleKey: 'feedback.role4',
+      rating: 5,
+      textKey: 'feedback.text4',
+      avatar: 'RL',
+    },
+  ];
 
   const settings = {
     dots: true,
@@ -109,11 +111,10 @@ export function Feedback() {
           className="text-center mb-16"
         >
           <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
-            Oque nossos clientes dizem?
+            {t('feedback.title')}
           </h2>
           <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
-            Não leve em conta apenas oque falamos, leia oque alguns de nossos
-            maiores clientes ja falaram:
+            {t('feedback.subtitle')}
           </p>
         </motion.div>
 
@@ -124,11 +125,11 @@ export function Feedback() {
           className="relative px-4 lg:px-16"
         >
           <Slider {...settings}>
-            {feedbacks.map(feedback => (
-              <div key={feedback.id} className="px-4">
+            {feedbacks.map(fb => (
+              <div key={fb.id} className="px-4">
                 <div className="bg-[#F5ECD7] rounded-2xl p-8 shadow-lg h-full">
                   <div className="flex gap-1 mb-4">
-                    {Array.from({ length: feedback.rating }, (_, i) => (
+                    {Array.from({ length: fb.rating }, (_, i) => (
                       <Star
                         key={i}
                         className="w-5 h-5 fill-[#C9A84C] text-[#C9A84C]"
@@ -137,21 +138,21 @@ export function Feedback() {
                   </div>
 
                   <p className="font-['Inter'] text-[#2C1A0E]/80 text-base leading-relaxed mb-6">
-                    "{feedback.text}"
+                    "{t(fb.textKey)}"
                   </p>
 
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-[#8A9E7B] flex items-center justify-center">
                       <span className="font-['Inter'] text-white text-lg">
-                        {feedback.avatar}
+                        {fb.avatar}
                       </span>
                     </div>
                     <div>
                       <div className="font-['Inter'] text-[#2C1A0E] text-lg">
-                        {feedback.name}
+                        {t(fb.nameKey)}
                       </div>
                       <div className="font-['Inter'] text-[#2C1A0E]/60 text-sm">
-                        {feedback.role}
+                        {t(fb.roleKey)}
                       </div>
                     </div>
                   </div>
@@ -235,7 +236,7 @@ export function Feedback() {
         .slick-arrow.slick-hidden {
           display: none;
         }
-        
+
         /* Dots */
         .slick-dots {
           position: relative;

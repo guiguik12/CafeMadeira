@@ -1,9 +1,11 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { t } = useLanguage();
 
   return (
     <section id="about" ref={ref} className="py-20 md:py-32 bg-[#F5ECD7]">
@@ -35,31 +37,24 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-6">
-              Nossa História
+              {t('about.title')}
             </h2>
 
             <p className="font-['Inter'] text-[#2C1A0E]/80 text-lg mb-6 leading-relaxed">
-              A proposta da Café & Café sempre foi oferecer mais do que sabores
-              marcantes. Eu queria construir uma experiência — um ambiente em
-              que o aroma do café fresco, o atendimento próximo e a atmosfera
-              tranquila fizessem cada cliente se sentir em casa.
+              {t('about.p1')}
             </p>
 
             <p className="font-['Inter'] text-[#2C1A0E]/80 text-lg mb-8 leading-relaxed">
-              O nome Café & Café carrega justamente essa essência. Ele
-              representa os diferentes momentos que o café acompanha: o primeiro
-              gole da manhã, a conversa da tarde, a pausa entre compromissos e
-              os encontros que ficam na memória.
+              {t('about.p2')}
             </p>
 
             {/* Pull Quote */}
             <div className="relative pl-6 border-l-4 border-[#C9A84C] my-8">
               <p className="font-['Inter'] text-[#2C1A0E] text-2xl md:text-3xl italic">
-                "O café não é apenas uma bebida, mas uma experiência criada com
-                amor e repleta de diferentes sensações."
+                {t('about.quote')}
               </p>
               <p className="font-['Inter'] text-[#8A9E7B] mt-2">
-                — Luiz Ribeiro, Fundador
+                {t('about.founder')}
               </p>
             </div>
 
@@ -69,7 +64,7 @@ export function About() {
                   10+
                 </div>
                 <div className="font-['Inter'] text-[#2C1A0E]/70 text-sm">
-                  Anos de Excelência
+                  {t('about.stats.experience')}
                 </div>
               </div>
               <div className="text-center">
@@ -77,7 +72,7 @@ export function About() {
                   50k+
                 </div>
                 <div className="font-['Inter'] text-[#2C1A0E]/70 text-sm">
-                  Clientes Satisfeitos
+                  {t('about.stats.customers')}
                 </div>
               </div>
               <div className="text-center">
@@ -85,7 +80,7 @@ export function About() {
                   100%
                 </div>
                 <div className="font-['Inter'] text-[#2C1A0E]/70 text-sm">
-                  Grãos Naturais
+                  {t('about.stats.beans')}
                 </div>
               </div>
             </div>

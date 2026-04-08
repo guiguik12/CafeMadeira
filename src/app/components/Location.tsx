@@ -1,15 +1,17 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { MapPin, Clock, Phone, Mail } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export function Location() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { t } = useLanguage();
 
   const hours = [
-    { day: 'Segunda - Sexta', time: '7:00 - 20:00' },
-    { day: 'Sábado', time: '8:00 - 21:00' },
-    { day: 'Domingo', time: '8:00 - 19:00' },
+    { dayKey: 'location.weekdays', time: '7:00 - 20:00' },
+    { dayKey: 'location.saturday', time: '8:00 - 21:00' },
+    { dayKey: 'location.sunday', time: '8:00 - 19:00' },
   ];
 
   return (
@@ -23,10 +25,10 @@ export function Location() {
           className="text-center mb-16"
         >
           <h2 className="font-['Inter'] text-[#2C1A0E] text-4xl md:text-5xl lg:text-6xl mb-4">
-            Nos visite
+            {t('location.title')}
           </h2>
           <p className="font-['Inter'] text-[#2C1A0E]/70 text-lg max-w-2xl mx-auto">
-            Transforme sua pausa em um encontro com a arte do café.
+            {t('location.subtitle')}
           </p>
         </motion.div>
 
@@ -42,13 +44,13 @@ export function Location() {
             <div className="w-full h-full bg-gradient-to-br from-[#8A9E7B] to-[#C9A84C] flex items-center justify-center">
               <div className="text-center text-white">
                 <MapPin className="w-16 h-16 mx-auto mb-4 opacity-80" />
-                <p className="font-['Inter'] text-xl">Mapa Interativo</p>
+                <p className="font-['Inter'] text-xl">{t('location.mapLabel')}</p>
                 <p className="font-['Inter'] text-sm opacity-80 mt-2">
-                  (Google Maps Aqui)
+                  {t('location.mapSublabel')}
                 </p>
               </div>
             </div>
-            {/* <iframe 
+            {/* <iframe
               src="URLgoogle"
               width="100%"
               height="100%"
@@ -58,14 +60,14 @@ export function Location() {
             ></iframe> */}
           </motion.div>
 
-          {/* Contato e horario */}
+          {/* Contact and hours */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
           >
-            {/* Endereço */}
+            {/* Address */}
             <div>
               <div className="flex items-start gap-4">
                 <div className="bg-[#C9A84C] p-3 rounded-full">
@@ -73,14 +75,14 @@ export function Location() {
                 </div>
                 <div>
                   <h3 className="font-['Inter'] text-[#2C1A0E] text-2xl mb-2">
-                    Endereço
+                    {t('location.address')}
                   </h3>
                   <p className="font-['Inter'] text-[#2C1A0E]/80 leading-relaxed">
-                    Rua das Rosas, 123
+                    {t('location.street')}
                     <br />
-                    Centro
+                    {t('location.district')}
                     <br />
-                    Porto Velho, Ro 00000-00
+                    {t('location.city')}
                   </p>
                 </div>
               </div>
@@ -94,16 +96,16 @@ export function Location() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-['Inter'] text-[#2C1A0E] text-2xl mb-4">
-                    Horários:
+                    {t('location.hours')}
                   </h3>
                   <div className="space-y-3">
                     {hours.map(schedule => (
                       <div
-                        key={schedule.day}
+                        key={schedule.dayKey}
                         className="flex justify-between items-center py-2 border-b border-[#2C1A0E]/10"
                       >
                         <span className="font-['Inter'] text-[#2C1A0E]/80">
-                          {schedule.day}
+                          {t(schedule.dayKey)}
                         </span>
                         <span className="font-['Inter'] text-[#2C1A0E]">
                           {schedule.time}
@@ -123,7 +125,7 @@ export function Location() {
                 </div>
                 <div>
                   <p className="font-['Inter'] text-[#2C1A0E]/60 text-sm">
-                    Numero para contato:
+                    {t('location.phoneLabel')}
                   </p>
                   <p className="font-['Inter'] text-[#2C1A0E]">
                     (69) 99999-9999
@@ -136,7 +138,7 @@ export function Location() {
                 </div>
                 <div>
                   <p className="font-['Inter'] text-[#2C1A0E]/60 text-sm">
-                    Email
+                    {t('location.email')}
                   </p>
                   <p className="font-['Inter'] text-[#2C1A0E]">
                     email@auracup.com
@@ -147,7 +149,7 @@ export function Location() {
 
             {/* CTA Button */}
             <button className="w-full bg-[#2C1A0E] text-[#F5ECD7] px-8 py-4 rounded-full font-['Inter'] text-lg hover:bg-[#3d2918] transition-all duration-300 hover:scale-105 shadow-xl mt-6">
-              Saiba Mais
+              {t('location.learnMore')}
             </button>
           </motion.div>
         </div>

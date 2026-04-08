@@ -1,51 +1,52 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const menuItems = [
   {
     id: 1,
-    name: 'Espresso Artesanal',
-    description: 'yadayadayada',
+    nameKey: 'menu.item1',
+    descriptionKey: 'menu.description',
     price: '$4.50',
     image:
       'https://images.unsplash.com/photo-1771956649576-647bbaaffa4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlc3ByZXNzbyUyMGNvZmZlZSUyMGN1cCUyMGhhbmRzfGVufDF8fHx8MTc3NDI3MzEwNXww&ixlib=rb-4.1.0&q=80&w=1080',
   },
   {
     id: 2,
-    name: 'Cappuccino Clássico',
-    description: 'yadayadayada',
+    nameKey: 'menu.item2',
+    descriptionKey: 'menu.description',
     price: '$5.50',
     image:
       'https://images.unsplash.com/photo-1667388363683-a07bbf0c84b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXBwdWNjaW5vJTIwbGF0dGUlMjBhcnR8ZW58MXx8fHwxNzc0MjI5OTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080',
   },
   {
     id: 3,
-    name: 'Croissant Amanteigado',
-    description: 'yadayadayada',
+    nameKey: 'menu.item3',
+    descriptionKey: 'menu.description',
     price: '$3.50',
     image:
       'https://images.unsplash.com/photo-1675125530909-15213f01a9e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXN0cnklMjBjcm9pc3NhbnQlMjBjb2ZmZWV8ZW58MXx8fHwxNzc0MjczMTA2fDA&ixlib=rb-4.1.0&q=80&w=1080',
   },
   {
     id: 4,
-    name: 'Latte Macchiato',
-    description: 'yadayadayada',
+    nameKey: 'menu.item4',
+    descriptionKey: 'menu.description',
     price: '$5.00',
     image:
       'https://images.unsplash.com/photo-1667388363683-a07bbf0c84b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXBwdWNjaW5vJTIwbGF0dGUlMjBhcnR8ZW58MXx8fHwxNzc0MjI5OTQ3fDA&ixlib=rb-4.1.0&q=80&w=1080',
   },
   {
     id: 5,
-    name: 'Cold Brew Especial',
-    description: 'yadayadayada',
+    nameKey: 'menu.item5',
+    descriptionKey: 'menu.description',
     price: '$6.00',
     image:
       'https://images.unsplash.com/photo-1672570050756-4f1953bde478?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBiZWFucyUyMHJvYXN0ZWR8ZW58MXx8fHwxNzc0MjI4NjEyfDA&ixlib=rb-4.1.0&q=80&w=1080',
   },
   {
     id: 6,
-    name: 'Pão de Queijo',
-    description: 'yadayadayada',
+    nameKey: 'menu.item6',
+    descriptionKey: 'menu.description',
     price: '$4.00',
     image:
       'https://images.unsplash.com/photo-1675125530909-15213f01a9e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXN0cnklMjBjcm9pc3NhbnQlMjBjb2ZmZWV8ZW58MXx8fHwxNzc0MjczMTA2fDA&ixlib=rb-4.1.0&q=80&w=1080',
@@ -55,6 +56,7 @@ const menuItems = [
 export function Menu() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useLanguage();
 
   return (
     <section id="menu" ref={ref} className="py-20 md:py-32 bg-[#E3E3E3]">
@@ -66,7 +68,7 @@ export function Menu() {
           className="text-center mb-16"
         >
           <h2 className="font-['Inter'] text-[#5B3130] text-4xl md:text-5xl lg:text-6xl">
-            MENU
+            {t('menu.title')}
           </h2>
         </motion.div>
 
@@ -85,7 +87,7 @@ export function Menu() {
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={item.image}
-                    alt={item.name}
+                    alt={t(item.nameKey)}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2C1A0E]/50 to-transparent" />
@@ -98,10 +100,10 @@ export function Menu() {
                 {/* Content */}
                 <div className="p-6">
                   <h3 className="font-['Inter'] text-[#2C1A0E] text-2xl mb-2">
-                    {item.name}
+                    {t(item.nameKey)}
                   </h3>
                   <p className="font-['Inter'] text-[#2C1A0E]/70 text-sm leading-relaxed">
-                    {item.description}
+                    {t(item.descriptionKey)}
                   </p>
                 </div>
               </div>
@@ -117,7 +119,7 @@ export function Menu() {
           className="text-center mt-12"
         >
           <button className="bg-[#2C1A0E] text-[#F5ECD7] px-8 py-4 rounded-full font-['Inter'] text-lg hover:bg-[#3d2918] transition-all duration-300 hover:scale-105 shadow-xl">
-            Ver mais
+            {t('menu.viewMore')}
           </button>
         </motion.div>
       </div>

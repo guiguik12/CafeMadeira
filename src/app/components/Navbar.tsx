@@ -1,8 +1,10 @@
 import CardNav from './CardNav';
 import { useSection } from '../context/SectionContext';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export function Navbar() {
   const { setActiveSection } = useSection();
+  const { t, lang, setLang } = useLanguage();
 
   const handleNavigation = (section: string) => {
     setActiveSection(section as 'home' | 'menu' | 'about' | 'gallery' | 'testimonials' | 'location');
@@ -10,34 +12,34 @@ export function Navbar() {
 
   const navItems = [
     {
-      label: 'Menu',
+      label: t('nav.menu'),
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
-        { label: 'Coffee', onClick: () => handleNavigation('menu'), ariaLabel: 'Coffee' },
+        { label: t('nav.coffee'), onClick: () => handleNavigation('menu'), ariaLabel: t('nav.coffee') },
       ],
     },
     {
-      label: 'About',
+      label: t('nav.about'),
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
         {
-          label: 'History',
+          label: t('nav.history'),
           onClick: () => handleNavigation('about'),
-          ariaLabel: 'History',
+          ariaLabel: t('nav.history'),
         },
-        { label: 'Mission', onClick: () => handleNavigation('about'), ariaLabel: 'Mission' },
+        { label: t('nav.mission'), onClick: () => handleNavigation('about'), ariaLabel: t('nav.mission') },
       ],
     },
     {
-      label: 'Contacts',
+      label: t('nav.contacts'),
       bgColor: '#5B3130',
       textColor: '#E3E3E3',
       links: [
-        { label: 'Gallery', onClick: () => handleNavigation('gallery'), ariaLabel: 'Gallery' },
-        { label: 'Location', onClick: () => handleNavigation('location'), ariaLabel: 'Location' },
-        { label: 'Feedback', onClick: () => handleNavigation('testimonials'), ariaLabel: 'Feedback' },
+        { label: t('nav.gallery'), onClick: () => handleNavigation('gallery'), ariaLabel: t('nav.gallery') },
+        { label: t('nav.location'), onClick: () => handleNavigation('location'), ariaLabel: t('nav.location') },
+        { label: t('nav.feedback'), onClick: () => handleNavigation('testimonials'), ariaLabel: t('nav.feedback') },
       ],
     },
   ];
@@ -52,6 +54,9 @@ export function Navbar() {
       ease="circ.out"
       className="fixed top-0 left-0 right-0 w-full max-w-none z-50"
       onLogoClick={() => handleNavigation('home')}
+      lang={lang}
+      onToggleLang={() => setLang(lang === 'en' ? 'pt' : 'en')}
+      langLabel={lang === 'en' ? t('lang.pt') : t('lang.en')}
     />
   );
 }

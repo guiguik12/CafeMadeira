@@ -1,3 +1,13 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+/* Language fade transition */
+.lang-fade {
+  animation: langFade 0.3s ease-in-out;
+}
+
+@keyframes langFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

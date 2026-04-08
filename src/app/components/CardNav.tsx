@@ -5,7 +5,7 @@ import {
   Cross2Icon,
   ArrowTopRightIcon,
 } from '@radix-ui/react-icons';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Globe } from 'lucide-react';
 
 type CardNavLink = {
   label: string;
@@ -32,6 +32,9 @@ export interface CardNavProps {
   buttonBgColor?: string;
   buttonTextColor?: string;
   onLogoClick?: () => void;
+  lang?: string;
+  onToggleLang?: () => void;
+  langLabel?: string;
 }
 
 const CardNav: React.FC<CardNavProps> = ({
@@ -43,6 +46,9 @@ const CardNav: React.FC<CardNavProps> = ({
   menuColor,
   buttonTextColor,
   onLogoClick,
+  lang,
+  onToggleLang,
+  langLabel,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -141,8 +147,8 @@ const CardNav: React.FC<CardNavProps> = ({
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    globalThis.addEventListener('resize', handleResize);
+    return () => globalThis.removeEventListener('resize', handleResize);
   }, [isExpanded]);
 
   const closeMenu = () => {
@@ -210,14 +216,28 @@ const CardNav: React.FC<CardNavProps> = ({
             </span>
           </div>
 
-          <button
-            type="button"
-            className="cart-button inline-flex h-10 items-center justify-center cursor-pointer transition-colors duration-300 hover:opacity-75"
-            style={{ color: buttonTextColor }}
-            aria-label="Carrinho de compras"
-          >
-            <ShoppingCart className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            {onToggleLang && langLabel && (
+              <button
+                type="button"
+                className="lang-toggle inline-flex items-center gap-1 h-10 px-3 rounded-full cursor-pointer transition-colors duration-300 hover:opacity-75 text-xs font-semibold"
+                style={{ color: buttonTextColor }}
+                onClick={onToggleLang}
+                aria-label={`Switch to ${lang === 'en' ? 'Portuguese' : 'English'}`}
+              >
+                <Globe className="w-4 h-4" />
+                {langLabel}
+              </button>
+            )}
+            <button
+              type="button"
+              className="cart-button inline-flex h-10 items-center justify-center cursor-pointer transition-colors duration-300 hover:opacity-75"
+              style={{ color: buttonTextColor }}
+              aria-label="Shopping cart"
+            >
+              <ShoppingCart className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         <div

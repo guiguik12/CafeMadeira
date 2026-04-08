@@ -3,9 +3,11 @@ import auracupHand from '@/assets/auracup_hand.png';
 import BlurText from './BlurText';
 import ShinyText from './ShinyText';
 import { useSection } from '../context/SectionContext';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export function Home() {
   const { setActiveSection } = useSection();
+  const { t } = useLanguage();
   return (
     <section
       id="hero"
@@ -23,7 +25,7 @@ export function Home() {
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="absolute inset-0 flex flex-col items-center md:items-start justify-start md:justify-center z-20 gap-2 px-4 md:px-12 lg:px-24 pt-28 md:pt-0">
         <ShinyText
-          text="AURA CUP"
+          text={t('hero.brand')}
           speed={2}
           delay={0}
           color="#9A9996"
@@ -36,7 +38,7 @@ export function Home() {
           className="text-5xl md:text-7xl font-['Inter'] font-bold text-center md:text-left"
         />
         <BlurText
-          text="Coffee Shop"
+          text={t('hero.subtitle')}
           delay={600}
           animateBy="words"
           direction="bottom"
@@ -56,7 +58,7 @@ export function Home() {
             onClick={() => setActiveSection('menu')}
             className="mb-4 px-6 py-2 bg-[#5B3130] text-[#F5ECD7] rounded-full font-['Inter'] text-sm hover:bg-[#683B3B] transition-colors duration-300"
           >
-            View Menu
+            {t('hero.viewMenu')}
           </motion.button>
         </motion.div>
         <motion.div
@@ -71,7 +73,7 @@ export function Home() {
             rel="noopener noreferrer"
             className="text-sm md:text-base font-['Inter'] text-[#E3E3E3]/50 hover:text-[#E3E3E3]/80 transition-colors duration-300 underline"
           >
-            Brand Identity by Богдана Собко
+            {t('hero.brandIdentity')}
           </a>
         </motion.div>
       </div>
