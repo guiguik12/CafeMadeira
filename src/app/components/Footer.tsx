@@ -27,7 +27,9 @@ export function Footer() {
               <span className="font-['Inter'] text-2xl text-[#E3E3E3]">
                 AURA CUP
               </span>
-              <span className="text-sm text-[#E3E3E3]/50">{t('footer.coffeeShop')}</span>
+              <span className="text-sm text-[#E3E3E3]/50">
+                {t('footer.coffeeShop')}
+              </span>
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center md:items-center gap-4">
@@ -104,11 +106,11 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-[#E3E3E3]/20 pt-4 flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="font-['Inter'] text-[#E3E3E3]/60 text-sm">
+        <div className="border-t border-[#E3E3E3]/20 pt-4">
+          <p className="font-['Inter'] text-[#E3E3E3]/60 text-sm text-center mb-4">
             {t('footer.copyright')}
           </p>
-          <div className="flex gap-3 font-['Inter'] text-[#E3E3E3]/60 text-sm underline">
+          <div className="flex gap-3 font-['Inter'] text-[#E3E3E3]/60 text-sm underline justify-center">
             <p>{t('footer.terms')}</p>
             <p>{t('footer.privacy')}</p>
           </div>

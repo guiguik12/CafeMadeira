@@ -5,10 +5,12 @@ import auracupTable from '@/assets/auracup_table.png';
 import ShinyText from './ShinyText';
 import { triggerCoffeeConfetti } from './ConfettiCoffee';
 import { Button } from './ui/button';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function Location() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { t } = useLanguage();
 
   return (
     <section id="location" ref={ref} className="bg-[#E3E3E3]">
@@ -25,7 +27,7 @@ export function Location() {
         />
         <div className="absolute inset-0 flex flex-col items-center pt-15 justify-center gap-4 bg-black/80">
           <ShinyText
-            text="FIND US"
+            text={t('location.heroTitle')}
             speed={2}
             delay={0}
             color="#9A9996"
@@ -38,7 +40,7 @@ export function Location() {
             className="text-4xl md:text-5xl lg:text-6xl font-['Inter'] font-bold"
           />
           <span className="text-sm md:text-base font-['Inter'] text-white text-center px-6 pb-9 max-w-2xl">
-            Come visit us and enjoy the best coffee experience.
+            {t('location.heroSubtitle')}
           </span>
           <motion.div
             animate={{ y: [0, 12, 0] }}
@@ -46,7 +48,7 @@ export function Location() {
             className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center"
           >
             <span className="hidden md:block text-xs md:text-sm font-['Inter'] text-white/80">
-              Scroll to more details
+              {t('location.scrollText')}
             </span>
             <ChevronDown className="w-6 h-6 text-white" />
           </motion.div>
@@ -82,42 +84,42 @@ export function Location() {
               <div className="md:flex md:items-start md:gap-4 flex flex-col items-center">
                 <div className="flex items-center gap-4 mb-2 md:mb-0">
                   <h3 className="font-['Inter'] text-[#5B3130] text-md font-bold">
-                    ADDRESS
+                    {t('location.addressLabel')}
                   </h3>
                 </div>
                 <p className="font-['Inter'] text-[#141517]/80 text-sm leading-relaxed md:ml-0 ml-0">
-                  250 Lafayette Street
+                  {t('location.addressText')}
                   <br />
-                  Soho, New York, NY 10012
+                  {t('location.district')}
                   <br />
-                  United States
+                  {t('location.country')}
                 </p>
               </div>
               <div className="md:flex md:items-start md:gap-4 flex flex-col items-center">
                 <div className="flex items-center gap-4 mb-2 md:mb-0">
                   <h3 className="font-['Inter'] text-[#5B3130] text-md font-bold">
-                    HOURS
+                    {t('location.hoursLabel')}
                   </h3>
                 </div>
                 <div className="space-y-2 font-['Inter'] text-sm text-[#141517] md:ml-0 ml-0">
                   <div className="flex justify-center md:justify-start gap-2">
-                    <span>Monday - Friday:</span>
-                    <span className="font-bold">7:00 AM - 8:00 PM</span>
+                    <span>{t('location.weekdays')}:</span>
+                    <span className="font-bold">{t('location.weekdayTime')}</span>
                   </div>
                   <div className="flex justify-center md:justify-start gap-2">
-                    <span>Saturday:</span>
-                    <span className="font-bold">8:00 AM - 9:00 PM</span>
+                    <span>{t('location.saturday')}:</span>
+                    <span className="font-bold">{t('location.saturdayTime')}</span>
                   </div>
                   <div className="flex justify-center md:justify-start gap-2">
-                    <span>Sunday:</span>
-                    <span className="font-bold">8:00 AM - 7:00 PM</span>
+                    <span>{t('location.sunday')}:</span>
+                    <span className="font-bold">{t('location.sundayTime')}</span>
                   </div>
                 </div>
               </div>
               <div className="md:flex md:items-start md:gap-4 flex flex-col items-center">
                 <div className="flex items-center gap-4 mb-2 md:mb-0">
                   <h3 className="font-['Inter'] text-[#5B3130] text-md font-bold">
-                    PHONE
+                    {t('location.phoneLabel')}
                   </h3>
                 </div>
                 <div className="md:ml-0 ml-0">
@@ -125,10 +127,10 @@ export function Location() {
                     href="tel:+12124315830"
                     className="font-['Inter'] text-[#141517] text-sm font-bold hover:text-[#141517]/80 transition-colors"
                   >
-                    (212) 431-5830
+                    {t('location.phoneNumber')}
                   </a>
                   <p className="font-['Inter'] text-[#141517]/60 text-sm mt-1">
-                    Available 24/7
+                    {t('location.phoneAvailability')}
                   </p>
                 </div>
               </div>
@@ -136,7 +138,7 @@ export function Location() {
                 <div className="md:flex md:items-start md:gap-4 flex flex-col items-center">
                   <div className="flex items-center gap-4 mb-2 md:mb-0">
                     <h3 className="font-['Inter'] text-[#5B3130] text-md font-bold">
-                      EMAIL
+                      {t('location.emailLabel')}
                     </h3>
                   </div>
                   <div className="md:ml-0 ml-0">
@@ -144,10 +146,10 @@ export function Location() {
                       href="mailto:hello@auracup.com"
                       className="font-['Inter'] text-[#141517] text-sm font-bold hover:text-[#141517]/80 transition-colors"
                     >
-                      hello@auracup.com
+                      {t('location.emailAddress')}
                     </a>
                     <p className="font-['Inter'] text-[#141517]/60 text-sm mt-1">
-                      Response within 24h
+                      {t('location.emailResponse')}
                     </p>
                   </div>
                 </div>
@@ -158,7 +160,7 @@ export function Location() {
                 >
                   <a href="mailto:hello@auracup.com?subject=Inquiry%20about%20AuraCup&body=Hello%20AuraCup%20team,%0A%0AI%20would%20like%20to%20inquire%20about...">
                     <Mail className="w-4 h-4" />
-                    Contact
+                    {t('location.contactButton')}
                   </a>
                 </Button>
               </div>

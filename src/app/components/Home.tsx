@@ -56,7 +56,7 @@ export function Home() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
             onClick={() => setActiveSection('menu')}
-            className="mb-4 px-6 py-2 bg-[#5B3130] text-[#F5ECD7] rounded-full font-['Inter'] text-sm hover:bg-[#683B3B] transition-colors duration-300"
+            className="mb-4 px-6 py-2 bg-[#5B3130] text-[#F5ECD7] rounded-full font-['Inter'] text-sm hover:bg-[#5B3130]/80 transition-colors duration-300"
           >
             {t('hero.viewMenu')}
           </motion.button>

@@ -56,8 +56,8 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 w-full max-w-none z-50"
       onLogoClick={() => handleNavigation('home')}
       lang={lang}
-      onToggleLang={() => setLang(lang === 'en' ? 'pt' : 'en')}
-      langLabel={lang === 'en' ? t('lang.pt') : t('lang.en')}
+      onToggleLang={() => setLang(lang === 'en' ? 'pt-br' : 'en')}
+      langLabel={lang === 'en' ? t('lang.pt-br') : t('lang.en')}
     />
   );
 }

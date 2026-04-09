@@ -1,17 +1,17 @@
 import { createContext, useContext, useState, useCallback, ReactNode, useMemo } from 'react';
-import type { Language } from './translations';
+import type { Lang } from './translations';
 import { getTranslation } from './translations';
 
 interface LanguageContextType {
-  lang: Language;
-  setLang: (lang: Language) => void;
+  lang: Lang;
+  setLang: (lang: Lang) => void;
   t: (key: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Language>('en');
+export function LanguageProvider({ children }: Readonly<{ children: ReactNode }>) {
+  const [lang, setLang] = useState<Lang>('en');
 
   const t = useCallback(
     (key: string) => getTranslation(lang, key),
